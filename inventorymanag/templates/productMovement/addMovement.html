@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}New Movement{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form class="text-center border border-light p-5" method="post">
+
+    <p class="h4 mb-4">Movement</p>
+
+	 <!-- stampdate  -->
+	<label for="stampdate">stampdate (date and time):</label>
+    <input class="form-control mb-4" type="datetime-local" id="stampdate" name="stampdate" placeholder="TimeStamp" required>
+
+	<!-- qty  -->
+	<label for="qty">qty</label>
+    <input class="form-control mb-4" type="number" name="qty" id="qty" placeholder="quantity"  required>
+
+    <!-- Products -->
+    <label for="productObj" > Choose Product: </label>
+    <select class="browser-default custom-select mb-4" name="productObj" id="productObj" >
+            {% for product in products %}
+               <option value="{{product}}">Product Name : {{product[1]}}  From location : {{product[2]}}</option>
+            {% endfor %}
+    </select>
+
+
+	<!-- To location-->
+    <label for="tolocationId"> Choose the location you want moe porduct to: </label>
+    <select class="browser-default custom-select mb-4" name="tolocationId" id="tolocationId" >
+      {% for location in locations %}
+        <option value="{{location[0]}}">{{location[1]}}</option>
+      {% endfor %}
+    </select>
+
+
+    <!-- Save button -->
+    <button style="background-color : rgba(47, 0, 90, 0.849)" class="btn btn-info btn-block" type="submit">Save</button>
+
+</form>
+{% endblock %}

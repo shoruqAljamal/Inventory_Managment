@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block content %}
+  <form class="text-center border border-light p-5" method="post">
+
+    <p class="h4 mb-4">Product</p>
+
+    <!-- Name -->
+    <input type="text" name="name" id="name" class="form-control mb-4" placeholder="Name" required>
+
+
+    <!-- Location -->
+    <label>Location</label>
+    <select class="browser-default custom-select mb-4"  name="locationId" id="locationId">
+      {% for location in locations %}
+			<option value="{{location[0]}}">{{location[1]}}</option>
+	  {% endfor %}
+    </select>
+
+    <!-- Save button -->
+    <button style="background-color : rgba(47, 0, 90, 0.849)" class="btn btn-info btn-block" type="submit">Save</button>
+
+</form>
+
+{% endblock %}

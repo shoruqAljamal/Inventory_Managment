@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %} Products{% endblock %}</h1>
+
+ <a  style="color : rgba(47, 0, 90, 0.849)" style="display: flex; align-items: flex-end; font-size:20px" class="action" href="{{ url_for('addProduct') }}">Add New Product </a>
+
+
+{% endblock %}
+{% block content %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Location Name</th>
+	   <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for product in products %}
+
+		<tr>
+
+			<td>{{ product[0] }}</td>
+			<td>{{ product[1] }}</td>
+			<td>{{ product[2] }}</td>
+			<td>   <a  style="color : rgba(47, 0, 90, 0.849)" class="action" href="{{ url_for('updateProduct', id=product[0]) }}">Edit</a></td>
+		</tr>
+
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block header %}
+
+{% endblock %}
+{% block content %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Location Name</th>
+      <th scope="col">Product Name</th>
+	   <th scope="col"> QTY</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for repvlaue in reports %}
+
+		<tr>
+
+			<td>{{ repvlaue.location_name }}</td>
+			<td>{{ repvlaue.product_name}}</td>
+			<td>{{ repvlaue.qty }}</td>
+
+		</tr>
+
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

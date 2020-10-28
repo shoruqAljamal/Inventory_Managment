@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block header %}
+  <h1>{% block title %}Edit Location {% endblock %}</h1>
+{% endblock %}
+
+
+{% block content %}
+  <form method="post" class="text-center border border-light p-5">
+
+    <p class="h4 mb-4"> Location </p>
+
+    <input class="form-control mb-4" placeholder="Location Name" type="text" name="name" id="name"
+      value="{{ request.form['name'] or location[1] }}" required>
+
+    <input style="background-color : rgba(47, 0, 90, 0.849)" class="btn btn-info btn-block" type="submit" value="Save">
+  </form>
+
+{% endblock %}
